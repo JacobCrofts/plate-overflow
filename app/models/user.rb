@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
   validates :hashed_password, uniqueness: true
 
   def password
-    @password ||= BCrypt::Password.new(hashed_password)
+    @password ||= BCrypt::Password.create(hashed_password)
   end
 
   def password=(new_password)

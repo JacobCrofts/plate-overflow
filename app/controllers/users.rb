@@ -5,7 +5,7 @@ end
 post '/users' do
   @user = User.new(params[:user])
   if @user.save
-    @user.password
+    session[:user_id] = @user.id
     redirect '/login'
   else
     @errors = @user.errors.full_messages
