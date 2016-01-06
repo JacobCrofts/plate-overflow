@@ -1,3 +1,5 @@
 class Tag < ActiveRecord::Base
-  # Remember to create a migration!
+  belongs_to :question
+  validates :name, presence: true
+  validates :question_id, presence: true
 end
