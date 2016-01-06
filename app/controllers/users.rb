@@ -2,6 +2,13 @@ get '/users/new' do
   erb :'/users/new'
 end
 
-post '/users/create' do
-
+post '/users' do
+  @user = User.new(params[:user])
+  if @user.save
+    @user.password
+    redirect '/login'
+  else
+    @errors = @user.errors.full_messages
+    erb :'/users/new'
+  end
 end
