@@ -7,4 +7,21 @@ class User < ActiveRecord::Base
   validates :username, presence: true
   validates :hashed_password, presence: true
   validates :email, presence: true
+  validates :email, uniqueness: true
+  validates :username, uniqueness: true
+  validates :hashed_password, uniqueness: true
+
+  def password
+    @password || BCrypt::Password.new(hashed_password)
+  end
+
+  def password=(new_password)
+    @password || BCrypt::Password.new(hashed_password)
+    self.hashed_password = @password
+  end
+
+  def self.authenticate(email, password)
+    @user = User.find_by_email(email)
+    return @user if @user && @user.password == password
+  end
 end
