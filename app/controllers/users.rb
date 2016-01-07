@@ -26,6 +26,10 @@ post '/users' do
 end
 
 get '/users/:id' do
-  @questions = Question.where(author_id: session[:user_id])
-  erb :'/users/show'
+  if session[:user_id] == params[:id]
+    @questions = Question.where(author_id: session[:user_id])
+    erb :'/users/show'
+  else
+    redirect '/'
+  end
 end
