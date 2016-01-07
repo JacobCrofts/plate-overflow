@@ -26,7 +26,7 @@ function show_answer_form(){
 };
 
 function add_answer_data(){
-  $("form").submit(function(event){
+  $("form data-new[new_answer_form]").submit(function(event){
     event.preventDefault();
     var url = $(this).attr("action");
     var data = $(this).serialize();
@@ -44,7 +44,7 @@ function add_answer_data(){
 };
 
 function update_answer_data(){
-  $("form").submit(function(event){
+  $("form data-edit[answers edit]").submit(function(event){
     event.preventDefault();
     var url = $(this).attr("action");
     var data = $(this).serialize();
