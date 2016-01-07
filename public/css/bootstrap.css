@@ -8,6 +8,16 @@
  * Designed and built with all the love in the world by @mdo and @fat.
  */
 
+* {
+text-align: center;
+}
+
+.error {
+  color: red;
+}
+
+ /* All items above this point were added manually. */
+
 .clearfix {
   *zoom: 1;
 }
