@@ -1,5 +1,17 @@
+get '/users' do
+  if session[:user_id]
+    redirect "/users/#{session[:user_id]}"
+  else
+    redirect '/'
+  end
+end
+
 get '/users/new' do
-  erb :'/users/new'
+  if session[:user_id]
+    redirect '/'
+  else
+    erb :'/users/new'
+  end
 end
 
 post '/users' do
