@@ -9,7 +9,17 @@
  */
 
 * {
-text-align: center;
+  text-align: center;
+}
+
+img {
+  height: 70%;
+  width: 70%;
+}
+
+.link:hover {
+  text-decoration: none;
+  color: #0066ff;
 }
 
 #new_answer_form {
@@ -30,6 +40,10 @@ text-align: center;
 
 .error {
   color: red;
+}
+
+.header {
+  color: #404040;
 }
 
  /* All items above this point were added manually. */
