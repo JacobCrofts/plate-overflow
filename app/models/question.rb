@@ -10,6 +10,6 @@ class Question < ActiveRecord::Base
   validates :author_id, presence: true
 
   def sum_votes
-    self.votes.map(&:value).reduce(:+)
+    self.votes.map(&:value).reduce(:+).to_i
   end
 end
