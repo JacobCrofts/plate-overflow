@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
   validates :hashed_password, uniqueness: true
 
   def password
-    @password ||= BCrypt::Password.create(hashed_password)
+    @password ||= BCrypt::Password.new(hashed_password)
   end
 
   def password=(new_password)
@@ -21,7 +21,7 @@ class User < ActiveRecord::Base
   end
 
   def authenticate(email, password)
-    self.email == email && self.hashed_password == hashed_password
+    self.email == email && self.password == password
   end
 
   def author_of_answer?(answer)
