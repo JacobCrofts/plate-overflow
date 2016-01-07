@@ -1,0 +1,20 @@
+<div>
+  <p> <%= @question.content %> </p>
+  <% if @question.answers %>
+    <% @question.answers.each do |answers| %>
+      <p> <%= answers.content %> </p>
+    <% end  %>
+  <% end %>
+</div>
+
+<div>
+  <ul>
+    <% @question.comments.each do |comment| %>
+    <li> <%= comment.content %> <span> <%= comment.author.username %> </span> </li>
+    <% end %>
+  </ul>
+</div>
+<div>
+<button id="new_comment_button" value="New comment"></button>
+</div>
+<form id="new_comment_form" action="/questions/<%= @question.id %>/comments" method="post"><textarea name="comment" placeholder="add your comment here" cols="50" rows="3"></textarea><input type="submit" value="Submit comment"></form>
