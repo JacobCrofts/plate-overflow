@@ -6,14 +6,22 @@ $(function(){
 
 $(function(){
   $(show_edit_form());
-    // $(update_answer_data());
+    $(update_answer_data());
 });
 
 function show_edit_form(){
   $("#edit_answer_button").on("click", function(event){
-      event.preventDefault();
-      $("#edit_answer_button").hide()
-      $("#edit_answer_form").show()
+    event.preventDefault();
+    $("#edit_answer_button").hide();
+    var data = $(this).serialize();
+    var request = $.ajax({
+        method: "get",
+        url: $(this).attr("data-url"),
+        data: data
+    });
+    request.done(function(response) {
+      $(this).append(response);
+    });
   });
 };
 
@@ -26,7 +34,7 @@ function show_answer_form(){
 };
 
 function add_answer_data(){
-  $("form").submit(function(event){
+  $("#new_answer_form").submit(function(event){
     event.preventDefault();
     var url = $(this).attr("action");
     var data = $(this).serialize();
@@ -44,8 +52,9 @@ function add_answer_data(){
 };
 
 function update_answer_data(){
-  $("form").submit(function(event){
+  $(".answer_list").on("#edit_answer_form", function(event){
     event.preventDefault();
+    console.log('hi')
     var url = $(this).attr("action");
     var data = $(this).serialize();
     var request = $.ajax({
@@ -56,7 +65,6 @@ function update_answer_data(){
     });
     request.done(function(body) {
       var parsed_data = JSON.parse(body);
-      append_new_answer(parsed_data);
     })
   });
 };

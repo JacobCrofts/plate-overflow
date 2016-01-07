@@ -1,5 +1,5 @@
 <li><%= answer.content %></li>
 <li><%= answer.author.username %></li>
 <% if answer.author.id == session[:user_id] %>
-  <button id="edit_answer_button">Edit Answer</button>
+  <button data-url="/questions/<%= answer.question_id %>/answers/<%= answer.id %>/edit" id="edit_answer_button">Edit Answer</button>
 <% end %>

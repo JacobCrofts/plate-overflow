@@ -17,14 +17,19 @@ end
 get '/questions/:question_id/answers/:answer_id/edit' do
   @question = Question.find(params[:question_id])
   @answer = Answer.find(params[:answer_id])
-  # erb :"answers/edit"
+  if request.xhr?
+    erb :"answers/_edit_partial"
+  else
+    erb :"answers/_edit"
+  end
 end
 
 put '/questions/:question_id/answers/:answer_id' do
   @question = Question.find(params[:question_id])
-  @answer.update_attributes(params[:question])
-  if @question.save
-    redirect '/questions'
+  @answer = Answer.find(params[:answer_id])
+  @answer.update_attributes(content: params[:answer])
+  if @answer.save
+    redirect '/questions/#{@question.id}'
   else
     erb :errors
   end
