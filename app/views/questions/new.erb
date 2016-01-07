@@ -1,5 +1,11 @@
 <form method="post" action="/questions">
-  <p><label for="question[content]">Content: </label></p>
-  <p><textarea name="question[content]" rows="10" cols="75"></textarea></p>
+  <p><label for="content">Content: </label></p>
+  <p><textarea name="content" rows="10" cols="75"></textarea></p>
   <p><button type="submit" class="btn-wide">Create Question</button></p>
 </form>
+
+<% if @errors %>
+  <% @errors.each do |error| %>
+  <p class="error"><%= error %></p>
+  <% end %>
+<% end %>
