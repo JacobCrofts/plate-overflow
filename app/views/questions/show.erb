@@ -7,7 +7,7 @@
 
 <ul class="answer_list">
 <% @answers.each do |answer| %>
-  <%= erb(:"answers/_index", :layout => false, locals: {answer: answer}) %>
+  <div class="answer_content"><%= erb(:"answers/_index", :layout => false, locals: {answer: answer}) %></div>
   <%= erb(:"answers/_edit", :layout => false, locals: {question: @question, answer: answer}) %>
  <% end %>
 </ul>
