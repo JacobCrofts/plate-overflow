@@ -8,6 +8,32 @@
  * Designed and built with all the love in the world by @mdo and @fat.
  */
 
+* {
+text-align: center;
+}
+
+#new_answer_form {
+  display: none;
+}
+
+#edit_answer_form {
+  display: none;
+}
+
+#new_comment_form {
+  display: none;
+}
+
+#edit_comment_form {
+  display: none;
+}
+
+.error {
+  color: red;
+}
+
+ /* All items above this point were added manually. */
+
 .clearfix {
   *zoom: 1;
 }
