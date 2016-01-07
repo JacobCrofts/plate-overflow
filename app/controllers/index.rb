@@ -12,6 +12,6 @@ post '/login' do
     session[:user_id] = @user.id
     redirect '/questions'
   else
-
+    redirect '/login'
   end
 end

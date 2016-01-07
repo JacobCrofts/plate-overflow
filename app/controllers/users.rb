@@ -12,3 +12,8 @@ post '/users' do
     erb :'/users/new'
   end
 end
+
+get '/users/:id' do
+  @questions = Question.where(author_id: session[:user_id])
+  erb :'/users/show'
+end

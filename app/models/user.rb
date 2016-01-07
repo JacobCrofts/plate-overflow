@@ -21,6 +21,6 @@ class User < ActiveRecord::Base
   end
 
   def authenticate(email, password)
-    self.email == email && self.hashed_password == password
+    self.email == email && self.hashed_password == hashed_password
   end
 end
