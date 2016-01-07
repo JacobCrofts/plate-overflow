@@ -1,0 +1,5 @@
+<form id="edit_answer_form" action="/questions/<%= question.id %>/answers/<%= answer.id %>" method="post">
+  <input type="hidden" name="_method" value="put">
+  <textarea name="answer" cols="50" rows="3"><%= answer.content %></textarea>
+  <input type="submit" name="post" value="Update answer">
+</form>

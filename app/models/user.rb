@@ -23,4 +23,8 @@ class User < ActiveRecord::Base
   def authenticate(email, password)
     self.email == email && self.hashed_password == hashed_password
   end
+
+  def author_of_answer?(answer)
+    answer.author_id == self.id
+  end
 end

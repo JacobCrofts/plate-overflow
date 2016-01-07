@@ -1,0 +1,75 @@
+$(function(){
+  // when button click load form for comment and author
+  $(show_answer_form());
+    $(add_answer_data());
+});
+
+$(function(){
+  $(show_edit_form());
+    $(update_answer_data());
+});
+
+function show_edit_form(){
+  $("#edit_answer_button").on("click", function(event){
+    event.preventDefault();
+    $("#edit_answer_button").hide();
+    var data = $(this).serialize();
+    var request = $.ajax({
+        method: "get",
+        url: $(this).attr("data-url"),
+        data: data
+    });
+    request.done(function(response) {
+      $(this).append(response);
+    });
+  });
+};
+
+function show_answer_form(){
+  $("#new_answer_button").on("click", function(event){
+    event.preventDefault();
+    $("#new_answer_button").hide()
+    $("#new_answer_form").show()
+  });
+};
+
+function add_answer_data(){
+  $("#new_answer_form").submit(function(event){
+    event.preventDefault();
+    var url = $(this).attr("action");
+    var data = $(this).serialize();
+    var request = $.ajax({
+      method: "POST",
+      url: url,
+      data: data
+      // missing toggle of comment box
+    });
+    request.done(function(body) {
+      var parsed_data = JSON.parse(body);
+      append_new_answer(parsed_data);
+    })
+  });
+};
+
+function update_answer_data(){
+  $(".answer_list").on("#edit_answer_form", function(event){
+    event.preventDefault();
+    console.log('hi')
+    var url = $(this).attr("action");
+    var data = $(this).serialize();
+    var request = $.ajax({
+      method: "POST",
+      url: url,
+      data: data
+      // missing toggle of comment box
+    });
+    request.done(function(body) {
+      var parsed_data = JSON.parse(body);
+    })
+  });
+};
+
+function append_new_answer(parsed_data){
+  $(".answer_list").append("<li>" + parsed_data.answer + "</li>");
+  $(".answer_list li:last-child").append("<span class=\"author\">" + parsed_data.author + "</span>");
+};

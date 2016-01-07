@@ -7,10 +7,9 @@
 
 <ul class="answer_list">
 <% @answers.each do |answer| %>
-<li><%= answer.content %></li>
-<li><%= answer.author.username %></li>
-<% end %>
+  <%= erb(:"answers/_index", :layout => false, locals: {answer: answer}) %>
+  <%= erb(:"answers/_edit", :layout => false, locals: {question: @question, answer: answer}) %>
+ <% end %>
 </ul>
 
-
-<form id="new_answer_form" action="/questions/<%= @question.id %>/answers"><textarea name="answer" placeholder="add your answer here" cols="50" rows="3"></textarea><input type="submit" name="post" value="Submit answer"></form>
+<%= erb(:"answers/_new", :layout => false, locals: {question: @question}) %>
