@@ -1,13 +1,24 @@
-<form action='/login' method='post'>
+<h3>Login</h3>
 
-  <input type="text" name="email" placeholder="email"/>
-  <br>
-  <input type="password" name="password" placeholder="password"/>
-  <br>
-  <input type='submit' value='Sign In'>
+<form class="form-signin" action='/users' method='post'>
 
+  <div class="control-group">
+    <div class="controls">
+      <div class="input-prepend">
+        <span class="add-on"><i class="icon-envelope"></i></span>
+        <input class="span3" id="inputIcon" type="text" name="email" placeholder="Email address">
+        <div></div>
+        <span class="add-on"><i class="icon-lock"></i></span>
+        <input class="span3" type="password" id="inputIcon" name="password" placeholder="Password"/>
+      </div>
+      <div></div>
+      <input class="btn btn-primary" type='submit' value='login'>
+    </div>
+  </div>
 </form>
 
-<a href="/users/new">Register</a>
-
-
+<% if @errors %>
+  <% @errors.each do |error| %>
+  <p class="error"><%= error %></p>
+  <% end %>
+<% end %>

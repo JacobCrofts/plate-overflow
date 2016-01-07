@@ -10,13 +10,26 @@
   <title></title>
 </head>
 <body>
-  <nav>
+  <nav class="nav nav-tabs">
     <% if session[:user_id] %>
       <h4>Logged in as <%= User.find(session[:user_id]).username %></h4>
-      <a href="/">home</a>
-      <a href="/users/<%=session[:user_id] %>">profile</a>
-      <a href="/logout"></a>
+
+
+
+      <li><a href="/users/<%=session[:user_id] %>">Profile</a></li>
+      <li><a href="/logout"></a>Logout</li>
+      <li><a href="/"> <i class="icon-home"></i> Home</a></li>
+
+
+
+      <li><a href="#"><i class="icon-pencil"></i> Applications</a></li>
+
     <% else %>
+
+
+
+
+
       <a href="/">home</a>
       <a href="/login">login</a>
     <% end %>
