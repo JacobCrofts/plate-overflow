@@ -1,0 +1,8 @@
+<% if @questions %>
+  <%  @questions.each do |question|  %>
+    <%=  question.content  %>
+    <br>
+  <% end %>
+<% else %>
+  <%= "Before you is a blank canvas with a limitless number of possibilities. Make some questions to see them listed here..." %>
+<% end %>
