@@ -17,6 +17,11 @@ img {
   width: 70%;
 }
 
+.cursive {
+  font-family: cursive;
+  color: #404040;
+}
+
 .link:hover {
   text-decoration: none;
   color: #0066ff;
