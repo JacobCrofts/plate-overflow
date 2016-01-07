@@ -1,4 +1,6 @@
+<h3>Questions</h3>
+
 <% @questions.each do |question| %>
-  <h3> <%= question.content %> </h3>
+  <h4> <%= question.content %> </h4>
   <p> <span> <%= question.sum_votes %> </span> <%= question.author.username %> </p>
 <% end %>
