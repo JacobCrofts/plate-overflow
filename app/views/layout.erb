@@ -12,28 +12,20 @@
 <body>
   <nav class="nav nav-tabs">
     <% if session[:user_id] %>
-      <h4>Logged in as <%= User.find(session[:user_id]).username %></h4>
-
-
-
-      <li><a href="/users/<%=session[:user_id] %>">Profile</a></li>
-      <li><a href="/logout"></a>Logout</li>
-      <li><a href="/"> <i class="icon-home"></i> Home</a></li>
-
-
-
-      <li><a href="#"><i class="icon-pencil"></i> Applications</a></li>
-
+      <li><a href="/"><i class="icon-home"></i>Home</a></li>
+      <li><a href="/users/<%= session[:user_id] %>"><i class="icon-user"></i> Profile</a></li>
+      <li><a href="/logout"><i class="icon-road"></i>Logout</a></li>
     <% else %>
-
-
-
-
-
-      <a href="/">home</a>
-      <a href="/login">login</a>
+      <li><a href="/"><i class="icon-home"></i>Home</a></li>
+      <li><a href="/login"><i class="icon-road"></i>Login</a></li>
+      <li><a href="/users/new"><i class="icon-plus"></i>Signup</a></li>
     <% end %>
   </nav>
+
+  <% if session[:user_id] %>
+    <p id="login-indicator">Logged in as <%= User.find(session[:user_id]).username %></p>
+  <% end %>
+
   <%= yield %>
   <script src="js/bootstrap.min.js"></script>
 </body>

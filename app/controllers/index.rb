@@ -3,7 +3,11 @@ get '/' do
 end
 
 get '/login' do
-  erb :login
+  if session[:user_id]
+    redirect '/'
+  else
+    erb :login
+  end
 end
 
 post '/login' do
@@ -12,6 +16,12 @@ post '/login' do
     session[:user_id] = @user.id
     redirect '/questions'
   else
-    redirect '/login'
+    @errors = ["credentials must match"]
+    erb :'login'
   end
+end
+
+get '/logout' do
+  session.clear
+  redirect '/'
 end

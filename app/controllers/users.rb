@@ -1,5 +1,17 @@
+get '/users' do
+  if session[:user_id]
+    redirect "/users/#{session[:user_id]}"
+  else
+    redirect '/'
+  end
+end
+
 get '/users/new' do
-  erb :'/users/new'
+  if session[:user_id]
+    redirect '/'
+  else
+    erb :'/users/new'
+  end
 end
 
 post '/users' do
@@ -14,6 +26,10 @@ post '/users' do
 end
 
 get '/users/:id' do
-  @questions = Question.where(author_id: session[:user_id])
-  erb :'/users/show'
+  if session[:user_id] == params[:id]
+    @questions = Question.where(author_id: session[:user_id])
+    erb :'/users/show'
+  else
+    redirect '/'
+  end
 end

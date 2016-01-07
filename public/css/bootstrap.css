@@ -9,7 +9,37 @@
  */
 
 * {
-text-align: center;
+  text-align: center;
+}
+
+.placeholder {
+  text-align: left;
+}
+
+#login-indicator {
+  text-align: left;
+  padding: 2px 10px 2px 10px;
+  background-color: green;
+  border-radius: 6px;
+  float: left;
+  margin-left: 5px;
+  font-weight: bold;
+  position: absolute;
+}
+
+img {
+  height: 70%;
+  width: 70%;
+}
+
+.cursive {
+  font-family: cursive;
+  color: #404040;
+}
+
+.link:hover {
+  text-decoration: none;
+  color: #0066ff;
 }
 
 #new_answer_form {
@@ -30,6 +60,10 @@ text-align: center;
 
 .error {
   color: red;
+}
+
+.header {
+  color: #404040;
 }
 
  /* All items above this point were added manually. */
