@@ -1,7 +1,24 @@
+<h3>Ask a Question</h3>
+
 <form method="post" action="/questions">
-  <p><label for="content">Content: </label></p>
-  <p><textarea name="content" rows="10" cols="75"></textarea></p>
-  <p><button type="submit" class="btn-wide">Create Question</button></p>
+
+  <div class="control-group">
+    <div class="controls">
+      <div class="input-prepend">
+
+        <span class="add-on"><i class="icon-pencil"></i></span>
+        <input class="placeholder" class="span3" type="text" id="inputIcon" name="title" placeholder="Title"/>
+        <div></div>
+
+        <span class="add-on"><i class="icon-pencil"></i></span>
+        <textarea class="placeholder" class="span3" id="inputIcon" type="text" name="content" placeholder="Description" rows="6"></textarea>
+
+        <div></div>
+      </div>
+      <div></div>
+      <input type="submit" class="btn btn-primary" value="Post Question">
+    </div>
+  </div>
 </form>
 
 <% if @errors %>

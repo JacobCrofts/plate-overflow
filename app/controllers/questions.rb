@@ -12,7 +12,7 @@ post '/questions' do
   author_id = session[:user_id]
   puts "Author id: #{author_id}"
   puts params[:question]
-  @question = Question.new(content: params[:content], author_id: author_id)
+  @question = Question.new(title: params[:title], content: params[:content], author_id: author_id)
   if @question.save
     redirect '/questions'
   else
