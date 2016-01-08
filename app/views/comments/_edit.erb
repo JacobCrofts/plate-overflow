@@ -1,0 +1,5 @@
+<form id="edit_comment_form" action="/questions/<%= question.id %>/comments/<%= comment.id %>" method="post">
+  <input type="hidden" name="_method" value="put">
+  <textarea name="answer" cols="50" rows="3"><%= comment.content %></textarea>
+  <input type="submit" name="post" value="Update comment">
+</form>

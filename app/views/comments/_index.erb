@@ -1,0 +1,5 @@
+<li><%= comment.content %></li>
+<li><%= comment.author.username %></li>
+<% if comment.author.id == session[:user_id] %>
+  <button data-url="/questions/<%= comment.question_id %>/comment/<%= comment.id %>/edit" id="edit_comment_button">Edit Comment</button>
+<% end %>
