@@ -11,17 +11,9 @@ $(function(){
 
 function show_edit_form(){
   $("#edit_answer_button").on("click", function(event){
-    event.preventDefault();
-    $("#edit_answer_button").hide();
-    var data = $(this).serialize();
-    var request = $.ajax({
-        method: "get",
-        url: $(this).attr("data-url"),
-        data: data
-    });
-    request.done(function(response) {
-      $(this).append(response);
-    });
+      event.preventDefault();
+      $("#edit_answer_button").hide()
+      $("#edit_answer_form").show()
   });
 };
 
@@ -32,7 +24,7 @@ function show_answer_form(){
     $("#new_answer_form").show()
   });
 };
-
+//data-new[new_answer_form]
 function add_answer_data(){
   $("#new_answer_form").submit(function(event){
     event.preventDefault();
@@ -50,21 +42,23 @@ function add_answer_data(){
     })
   });
 };
-
+// data-edit[answers edit]
 function update_answer_data(){
-  $(".answer_list").on("#edit_answer_form", function(event){
+  $("#edit_answer_form").submit(function(event){
     event.preventDefault();
-    console.log('hi')
     var url = $(this).attr("action");
     var data = $(this).serialize();
+    var answer = $(this).prev()
     var request = $.ajax({
-      method: "POST",
+      method: "PUT",
       url: url,
       data: data
       // missing toggle of comment box
     });
     request.done(function(body) {
-      var parsed_data = JSON.parse(body);
+      // var parsed_data = JSON.parse(body);
+      // console.log(body)
+      answer.html(body)
     })
   });
 };
