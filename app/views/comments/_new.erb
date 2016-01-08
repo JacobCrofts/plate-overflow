@@ -1,4 +1,7 @@
-<form id="new_comment_form" action="/questions/<%= question.id %>/comments" method="post">
-  <textarea name="comment" placeholder="add your comments here" cols="50" rows="3"></textarea>
-  <input type="submit" name="post" value="Submit comment">
-</form>
+<div class="bckgrd-comment">
+  <form id="new_comment_form" action="/questions/<%= question.id %>/comments" method="post">
+    <textarea name="comment" placeholder="add your comments here" cols="50" rows="3"></textarea>
+    <br>
+    <input type="submit" name="post" value="Submit comment" class="comment-input">
+  </form>
+</div>

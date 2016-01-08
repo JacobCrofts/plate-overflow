@@ -3,7 +3,7 @@
 <% if answer.author.id == session[:user_id] %>
   <button data-url="/questions/<%= answer.question_id %>/answers/<%= answer.id %>/edit" id="edit_answer_button">Edit Answer</button>
 <% end %>
-<button id="new_comment_button">Create comment</button>
+<button id="new_comment_button" class="btn btn-info">Create comment</button>
 
 <ul class="comment_list">
   <% answer.comments.each do |comment| %>
