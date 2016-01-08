@@ -1,9 +1,9 @@
 get '/tags' do
-  @tags = Tags.all
-  erb :index
+  @tags = Tag.all
+  erb :"tags/index"
 end
 
 get '/tags/:id' do
   @questions = Tag.find(params[:id]).questions
-    erb :'tags/show'
+    erb :"tags/show"
 end

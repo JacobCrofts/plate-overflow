@@ -1,3 +1,6 @@
+<h3 class="header">Tags</h3>
+
 <%  @tags.each do |tag|  %>
-  <%= <a href="/tags/#{tag.id}" tag.name /a> %>
+  <h4><a href="/tags/<%= tag.id %>"><%= tag.name %></a></h4>
+  <p><em>Questions with this Tag: <%= tag.num_questions %></em></p>
 <% end %>

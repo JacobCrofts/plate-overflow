@@ -4,4 +4,8 @@ class Tag < ActiveRecord::Base
 
   validates :name, presence: true
   validates :name, uniqueness: true
+
+  def num_questions
+    self.questions.count
+  end
 end

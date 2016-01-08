@@ -15,6 +15,8 @@
     <% if session[:user_id] %>
       <li><a href="/"><i class="icon-home"></i>Home</a></li>
       <li><a href="/users/<%= session[:user_id] %>"><i class="icon-user"></i> Profile</a></li>
+      <li><a href="/questions"><i class="icon-question-sign"></i> Questions</a></li>
+      <li><a href="/tags"><i class="icon-tag"></i>Tags</a></li>
       <li><a href="/logout"><i class="icon-road"></i>Logout</a></li>
     <% else %>
       <li><a href="/"><i class="icon-home"></i>Home</a></li>

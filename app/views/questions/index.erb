@@ -1,6 +1,8 @@
 <h3>Questions</h3>
 
 <% @questions.each do |question| %>
-  <h4> <%= question.content %> </h4>
+  <h4><a href="/questions/<%= question.id %>"> <%= question.title %> </a></h4>
   <p> <span> <%= question.sum_votes %> </span> <%= question.author.username %> </p>
 <% end %>
+
+<div class="new-question-link"><a href="/questions/new">Ask a Question</a></div>
