@@ -12,7 +12,6 @@ end
 
 post '/login' do
   @user = User.find_by(email: params[:email])
-  # puts @user.authenticate(params[:email], params[:password])
   if @user && @user.authenticate(params[:email], params[:password])
     session[:user_id] = @user.id
     redirect '/questions'

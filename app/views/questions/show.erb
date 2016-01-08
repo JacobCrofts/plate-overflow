@@ -9,7 +9,12 @@
 <% @answers.each do |answer| %>
   <div class="answer_content"><%= erb(:"answers/_index", :layout => false, locals: {answer: answer}) %></div>
   <%= erb(:"answers/_edit", :layout => false, locals: {question: @question, answer: answer}) %>
- <% end %>
+  <%= erb(:"comments/_new", :layout => false, locals: {question: @question}) %>
+<% end %>
+
+    <!-- <button id="new_comment_button">Create comment</button> -->
+
+
 </ul>
 
 <%= erb(:"answers/_new", :layout => false, locals: {question: @question}) %>

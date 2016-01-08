@@ -24,9 +24,9 @@ function show_answer_form(){
     $("#new_answer_form").show()
   });
 };
-
+//data-new[new_answer_form]
 function add_answer_data(){
-  $("form data-new[new_answer_form]").submit(function(event){
+  $("#new_answer_form").submit(function(event){
     event.preventDefault();
     var url = $(this).attr("action");
     var data = $(this).serialize();
@@ -42,9 +42,9 @@ function add_answer_data(){
     })
   });
 };
-
+// data-edit[answers edit]
 function update_answer_data(){
-  $("form data-edit[answers edit]").submit(function(event){
+  $("#edit_answer_form").submit(function(event){
     event.preventDefault();
     var url = $(this).attr("action");
     var data = $(this).serialize();
