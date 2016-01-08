@@ -19,3 +19,10 @@
 
 #new_comment_form input {
 }
+
+.question-box {
+  display: block;
+  border: 1px solid gray;
+  width: 400px;
+  margin: auto;
+}
