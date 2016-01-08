@@ -8,6 +8,7 @@ class Question < ActiveRecord::Base
 
   validates :content, presence: true
   validates :author_id, presence: true
+  validates :title, presence: true
 
   def sum_votes
     self.votes.map(&:value).reduce(:+).to_i
