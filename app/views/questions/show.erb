@@ -1,20 +1,23 @@
-<h1>This is a single question for the question with id <%= @question.id %></h1>
+
+<div class="question-box">
+<h1><%= @question.title %></h1>
 
 <p><%= @question.content %></p>
 <p><%= @question.author.username %></p>
+</div>
 
-<button id="new_answer_button">New Answer</button>
+
 
 <ul class="answer_list">
 <% @answers.each do |answer| %>
   <div class="answer_content"><%= erb(:"answers/_index", :layout => false, locals: {answer: answer}) %></div>
-  <%= erb(:"answers/_edit", :layout => false, locals: {question: @question, answer: answer}) %>
-  <%= erb(:"comments/_new", :layout => false, locals: {question: @question}) %>
+  <div class="edit-inline">
+    <%= erb(:"answers/_edit", :layout => false, locals: {question: @question, answer: answer}) %>
+    <%= erb(:"comments/_new", :layout => false, locals: {question: @question}) %>
+  </div>
 <% end %>
 
     <!-- <button id="new_comment_button">Create comment</button> -->
-
-
 </ul>
-
+<button id="new_answer_button" class="btn btn-success">New Answer</button>
 <%= erb(:"answers/_new", :layout => false, locals: {question: @question}) %>

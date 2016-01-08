@@ -5,3 +5,17 @@
 #edit_answer_form {
   display: none;
 }
+
+.edit-inline {
+  display: inline-block;
+}
+
+.submit-type {
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  background-color:#49afcd;
+  padding: 10px;
+}
+
+#new_comment_form input {
+}
